@@ -1,6 +1,35 @@
 # java-vs-haskell
 Hasekell for Java programmers tutorial by code samples
 
+### Recursion
+
+#### Hasekell implementation
+
+```Haskell
+showList' :: [Int] -> String 
+showList' number 
+   | length number == 0 = ""
+   | otherwise = show (head number) ++ showList' (tail number)
+
+showList :: [Int] -> String 
+showList [] = ""
+showList (n:numberButOne) = show n ++ showList numberButOne
+```
+
+#### Java implementation
+
+[Recursive definition of showList together with definition of head and tail methods](./src/main/java/recursion/ListUtility.java)
+
+#### Remarks
+1. Two implementations with the same behaviour in Haskell are provided. The very first one is more similar to the one provided in Java
+1. Apostrophe (') is a valid character in Haskell's literals
+1. All the function names should start with non capital letter
+1. Type specification of a Haskell function and its implementation is splitted but after type specification one has to provide definition immediately
+1. Type specification of a Haskell function may be omitted and then compiler provides inferred one (but it's recommened to provide one oneself)
+1. Haskell functions are pure and side effect free
+1. The second implementation makes use of pattern matching to decompose input argument into more useful chunks. In the pattern matching expression one can use arbitrary value constructors of the provided value (list has two of them [] empty list constructor and (:) colon that pushes element on front of the list.
+
+
 ### Monad type class
 
 #### Hasekell implementation
@@ -72,4 +101,13 @@ do notation in Haskell is just syntactic sugar and can be interpreted in means o
 #### Java implementation
 [explicit bind notation](./src/main/java/Main.java)
 
+### Unit testing
 
+#### Hasekell implementation
+
+#### Java implementation
+[Method definition](./src/main/java/unittesting/UtilityFactorial.java)
+[Tests in JUnit](./src/test/java/unittesting/UtilityFactorialJUnitTest.java)
+[Tests in AssertJ](./src/test/java/unittesting/UtilityFactorialAssertJTest.java)
+
+#### Remarks
