@@ -57,7 +57,7 @@ data Maybe x = Nothing | Just x
 
 instance Monad Maybe where
   (>>=) :: Maybe a -> (a -> Maybe b) -> Maybe b
-  Just x >>= f = Just $ f x
+  Just x >>= f = f x
   Nothing >>= _ = Nothing
   
   return :: a -> Maybe a
